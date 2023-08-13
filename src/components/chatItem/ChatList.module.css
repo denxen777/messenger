@@ -1,0 +1,7 @@
+.chatList {
+  cursor: pointer;
+}
+
+.chatList:hover {
+  background-color: #201f1e0a;
+}

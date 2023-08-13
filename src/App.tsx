@@ -1,12 +1,14 @@
-import { Box, Container, CssBaseline } from '@mui/material';
+import { Container, Stack } from '@mui/system';
+import { ChatList } from './components/chatList/ChatList';
+import { Messages } from './components/messages/Messages';
 
 export const App = () => {
   return (
-    <>
-      <CssBaseline />
-      <Container maxWidth={'xl'}>
-        <Box sx={{ bgcolor: '#a1c2d1', height: '50vh' }}></Box>
-      </Container>
-    </>
+    <Container maxWidth={'xl'}>
+      <Stack direction='row' height={800}>
+        <ChatList />
+        <Messages />
+      </Stack>
+    </Container>
   );
 };
