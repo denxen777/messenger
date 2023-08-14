@@ -1,4 +1,4 @@
-export interface IData {
+export interface IChatsData {
   response: IChat[];
 }
 
@@ -27,4 +27,17 @@ export interface IUser {
   name: string;
   surname: string;
   avatar: string;
+  you?: boolean;
+}
+
+export interface IMessagesData {
+  response: IMessage[];
+}
+
+export interface IMessage {
+  id: string;
+  created_at: number;
+  user: IUser;
+  message: string;
+  is_new: boolean;
 }
