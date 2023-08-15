@@ -11,7 +11,7 @@ export const Messages = () => {
   );
 
   return (
-    <Box width='100%' borderLeft={2} borderColor='#201F1E04'>
+    <Box width='100%' borderLeft={2} borderColor='#201F1E04' height={630} style={{overflowY: 'auto'}}>
       <Header title={title} />
       {messages.map(item => (
         <Message key={item.id} item={item} />

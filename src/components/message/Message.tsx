@@ -20,12 +20,12 @@ export const Message: FC<IMessage> = ({ item }) => {
     >
       {!user.you && <Avatar avatar={user.avatar} size='small' />}
       <Stack fontSize={15}>
-        <h4>{user.name + ' ' + user.surname}</h4>
+        {!user.you && <h4>{user.name + ' ' + user.surname}</h4>}
         <Box
           maxWidth={470}
           display='flex'
           alignItems='flex-end'
-          bgcolor='#F3F3F3'
+          bgcolor={user.you? '#407EC929' : '#F3F3F3'}
           py={1}
           px={1.5}
           my={0.5}
