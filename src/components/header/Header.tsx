@@ -1,8 +1,20 @@
 import { Box, Stack } from '@mui/system';
+import { FC } from 'react';
 
-export const Header = () => {
+interface IHeader {
+  title: string;
+}
+
+export const Header: FC<IHeader> = ({ title }) => {
   return (
-    <Stack direction='row' spacing={1.5} py={2.5} px={2} borderBottom={2} borderColor='#201F1E04'>
+    <Stack
+      direction='row'
+      spacing={1.5}
+      py={2.5}
+      px={2}
+      borderBottom={2}
+      borderColor='#201F1E04'
+    >
       <Box>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -17,7 +29,7 @@ export const Header = () => {
           />
         </svg>
       </Box>
-      <h3>Great Project</h3>
+      <h3>{title}</h3>
     </Stack>
   );
 };

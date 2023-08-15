@@ -1,8 +1,8 @@
 export interface IChatsData {
-  response: IChat[];
+  response: IChatData[];
 }
 
-export interface IChat {
+export interface IChatData {
   id: string;
   created_at: number;
   title: string;
@@ -27,14 +27,14 @@ export interface IUser {
   name: string;
   surname: string;
   avatar: string;
-  you?: boolean;
+  you: boolean;
 }
 
 export interface IMessagesData {
-  response: IMessage[];
+  response: IMessageData[];
 }
 
-export interface IMessage {
+export interface IMessageData {
   id: string;
   created_at: number;
   user: IUser;

@@ -1,25 +1,35 @@
 import { Stack } from '@mui/system';
-import { Avatar } from '../avatar/Avatar';
+import { Avatar } from '../common/avatar/Avatar';
 import { ChatInfo } from '../chatInfo/ChatInfo';
-import { IChat } from '../../api/interface';
+import { IChatData } from '../../api/interfaces';
 import { FC } from 'react';
 import styles from './ChatList.module.css';
 import { getMessages } from '../../api/api';
 import { useQuery } from 'react-query';
+import { createMessages } from '../../store/messages';
+import { useDispatch } from 'react-redux';
 
 interface IChatItem {
-  chat: IChat;
+  chat: IChatData;
 }
 
 export const ChatItem: FC<IChatItem> = ({ chat }) => {
-  const { data: messages, refetch } = useQuery({
+  const dispatch = useDispatch();
+
+  const { refetch } = useQuery({
     queryKey: ['messages', chat.id],
     queryFn: () => getMessages(chat.id),
     enabled: false,
   });
 
-  const handleClick = () => {
-    refetch();
+  const handleClick = async () => {
+    const { data: messages } = await refetch();
+
+    if (messages?.response) {
+      dispatch(
+        createMessages({ title: chat.title, messages: messages.response }),
+      );
+    }
   };
 
   return (

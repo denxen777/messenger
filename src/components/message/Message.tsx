@@ -1,13 +1,26 @@
 import { Box, Stack } from '@mui/system';
-import { Avatar } from '../avatar/Avatar';
+import { Avatar } from '../common/avatar/Avatar';
 import { Time } from '../time/Time';
+import { FC } from 'react';
+import { IMessageData } from '../../api/interfaces';
 
-export const Message = () => {
+interface IMessage {
+  item: IMessageData;
+}
+
+export const Message: FC<IMessage> = ({ item }) => {
+  const { message, is_new, created_at, user } = item;
+
   return (
-    <Stack direction='row' spacing={1} px={3}>
-      <Avatar avatar='' size='large' />
+    <Stack
+      direction='row'
+      spacing={1}
+      px={3}
+      justifyContent={user.you ? 'end' : 'start'}
+    >
+      {!user.you && <Avatar avatar={user.avatar} size='small' />}
       <Stack fontSize={15}>
-        <h4>Dianne Russell</h4>
+        <h4>{user.name + ' ' + user.surname}</h4>
         <Box
           maxWidth={470}
           display='flex'
@@ -18,11 +31,8 @@ export const Message = () => {
           my={0.5}
           borderRadius={1}
         >
-          <p>
-            It is my first time like this. Thank you so mush! More then you
-            know. Second line of the message
-          </p>
-          {/* <Time /> */}
+          <p>{message}</p>
+          <Time time={created_at} isYou={user.you} />
         </Box>
       </Stack>
     </Stack>

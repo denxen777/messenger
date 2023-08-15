@@ -5,9 +5,10 @@ import { getDate } from '../../utils/getDate';
 
 interface ITime {
   time: number;
+  isYou: boolean;
 }
 
-export const Time: FC<ITime> = ({ time }) => {
+export const Time: FC<ITime> = ({ time, isYou }) => {
   const { hours, min } = getDate(time);
 
   return (

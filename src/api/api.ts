@@ -1,5 +1,5 @@
 import { instance } from '../utils/instance';
-import { IChatsData, IMessagesData } from './interface';
+import { IChatsData, IMessagesData } from './interfaces';
 
 export const getAllChats = async (): Promise<IChatsData> => {
   return await instance
