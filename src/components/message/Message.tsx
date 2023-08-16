@@ -22,7 +22,6 @@ export const Message: FC<IMessage> = ({ item }) => {
       <Stack
         direction='row'
         spacing={1}
-        px={3}
         justifyContent={user.you ? 'end' : 'start'}
       >
         {!user.you && <Avatar avatar={user.avatar} size='small' />}

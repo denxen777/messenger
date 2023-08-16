@@ -11,15 +11,12 @@ export const ChatList = () => {
   });
 
   return (
-    <Box
-      minWidth={360}
-      height={650}
-      overflow='hidden'
-      sx={{ overflowY: 'auto' }}
-    >
+    <Box minWidth={360}>
       <h3 className={styles.title}>All chats</h3>
-      {isSuccess &&
-        chats.response.map(chat => <ChatItem key={chat.id} chat={chat} />)}
+      <Box height={650} overflow='hidden' sx={{ overflowY: 'auto' }}>
+        {isSuccess &&
+          chats.response.map(chat => <ChatItem key={chat.id} chat={chat} />)}
+      </Box>
     </Box>
   );
 };
