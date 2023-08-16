@@ -20,16 +20,13 @@ export const ChatItem: FC<IChatItem> = ({ chat }) => {
     queryKey: ['messages', chat.id],
     queryFn: () => getMessages(chat.id),
     enabled: false,
+    onSuccess: data => {
+      dispatch(createMessages({ title: chat.title, messages: data.response }));
+    },
   });
 
   const handleClick = async () => {
-    const { data: messages } = await refetch();
-
-    if (messages?.response) {
-      dispatch(
-        createMessages({ title: chat.title, messages: messages.response }),
-      );
-    }
+    await refetch();
   };
 
   return (

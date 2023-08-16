@@ -20,7 +20,7 @@ export const ChatInfo: FC<IChatInfo> = ({ title, lastMessage }) => {
     >
       <Stack direction='row' justifyContent='space-between'>
         <h4 className={styles.title}>{title}</h4>
-        <Time time={lastMessage.created_at} isYou={lastMessage.you} />
+        <Time time={lastMessage.created_at} incoming={lastMessage.you} />
       </Stack>
       <p className={styles.lastMessage}>{lastMessage.message}</p>
     </Stack>
