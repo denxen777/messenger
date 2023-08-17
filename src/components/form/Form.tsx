@@ -1,12 +1,11 @@
-import React from 'react';
+import { FormEvent } from 'react';
 import { Box, Stack } from '@mui/system';
 import iconSend from '../../aseets/img/send.png';
 import iconAttach from '../../aseets/img/attach.png';
 import styles from './Form.module.css';
 
 export const Form = () => {
-  //Исправить тип ANY
-  const onSubmit = (ev: any) => {
+  const onSubmit = (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
   };
 

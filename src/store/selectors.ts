@@ -1,6 +1,10 @@
 import { TRootState } from './store';
+import { createSelector } from '@reduxjs/toolkit';
 
-export const messagesSelector = (state: TRootState) =>
-  state.messages.messages.slice().sort((a, b) => a.created_at - b.created_at);
+const selectMessages = (state: TRootState) => state.messages.messages;
 
 export const titleSelector = (state: TRootState) => state.messages.title;
+
+export const messagesSelector = createSelector(selectMessages, messages => {
+  return messages.slice().sort((a, b) => a.created_at - b.created_at);
+});
