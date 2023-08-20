@@ -9,7 +9,7 @@ interface IAvatar {
 
 export const Avatar: FC<IAvatar> = ({ avatar, size = 'large' }) => {
   return (
-    <Box>
+    <Box className={avatar === '' ? styles.hidden : ''}>
       <img
         className={styles.avatar + ' ' + styles[size]}
         src={avatar}

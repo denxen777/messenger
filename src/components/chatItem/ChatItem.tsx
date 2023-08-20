@@ -38,7 +38,7 @@ export const ChatItem: FC<IChatItem> = ({ chat }) => {
       paddingLeft={2}
       onClick={handleClick}
     >
-      <Avatar avatar={chat.avatar} size='small' />
+      <Avatar avatar={chat.avatar} size='large' />
       <ChatInfo title={chat.title} lastMessage={chat.last_message} />
     </Stack>
   );

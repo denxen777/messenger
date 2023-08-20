@@ -3,11 +3,14 @@
 }
 
 .small {
-  width: 48px;
-  height: 48px;
+  width: 32px;
 }
 
 .large {
+  width: 48px;
+}
+
+.hidden {
   width: 32px;
-  height: 32px;
+  visibility: hidden;
 }

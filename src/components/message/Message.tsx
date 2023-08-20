@@ -25,6 +25,7 @@ export const Message: FC<IMessage> = ({ item }) => {
         direction='row'
         spacing={1}
         justifyContent={user.you ? 'end' : 'start'}
+        mt={user.avatar !== '' ? 1.5 : 0}
       >
         {!user.you && <Avatar avatar={user.avatar} size='small' />}
         <Stack fontSize={15}>
@@ -36,7 +37,7 @@ export const Message: FC<IMessage> = ({ item }) => {
             bgcolor={user.you ? '#407EC929' : '#F3F3F3'}
             py={1}
             px={1.5}
-            my={0.5}
+            mt={0.5}
             borderRadius={1}
           >
             <p>{message}</p>

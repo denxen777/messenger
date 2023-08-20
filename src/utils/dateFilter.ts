@@ -11,8 +11,17 @@ export const dateFilter = (array: IMessageData[]) => {
     const prevDataObj = getDate(array[i - 1]?.created_at);
     const prevData = `${prevDataObj.day}.${prevDataObj.month}.${prevDataObj.year}`;
 
+    const currentUserId = array[i].user.id;
+    const prevUserId = array[i - 1]?.user.id;
+
     if (currentData !== prevData || i === 0) {
       result.push(array[i]);
+    } else if (currentData === prevData && currentUserId === prevUserId) {
+      result.push({
+        ...array[i],
+        created_at: 0,
+        user: { ...array[i].user, name: '', surname: '', avatar: '' },
+      });
     } else {
       result.push({ ...array[i], created_at: 0 });
     }
