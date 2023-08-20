@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/system';
 import { Avatar } from '../common/avatar/Avatar';
 import { Time } from '../time/Time';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { IMessageData } from '../../api/interfaces';
 import { SystemMessage } from '../systemMessage/SystemMessage';
 import { NewMessage } from '../newMessage/NewMessage';
@@ -17,7 +17,9 @@ export const Message: FC<IMessage> = ({ item }) => {
 
   return (
     <>
-      <SystemMessage day={day} month={month} year={year} />
+      {item.created_at !== 0 && (
+        <SystemMessage day={day} month={month} year={year} />
+      )}
       {is_new && <NewMessage />}
       <Stack
         direction='row'
