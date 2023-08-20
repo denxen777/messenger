@@ -1,7 +1,7 @@
 import { Box, Stack } from '@mui/system';
 import { Avatar } from '../common/avatar/Avatar';
 import { Time } from '../time/Time';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { IMessageData } from '../../api/interfaces';
 import { SystemMessage } from '../systemMessage/SystemMessage';
 import { NewMessage } from '../newMessage/NewMessage';
