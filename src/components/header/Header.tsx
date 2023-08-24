@@ -13,7 +13,7 @@ export const Header: FC<IHeader> = ({ title }) => {
       py={2.5}
       px={2}
       borderBottom={2}
-      borderColor='#d7dbe085'
+      borderColor='#E4E4E4'
     >
       <Box>
         <svg

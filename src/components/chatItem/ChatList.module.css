@@ -3,5 +3,9 @@
 }
 
 .chatList:hover {
-  background-color: #201f1e0a;
+  background-color: #F6F6F6;
+}
+
+.active {
+  background-color: #F0F5FB;
 }

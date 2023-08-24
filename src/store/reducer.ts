@@ -7,7 +7,7 @@ const initialState: IMessagesState = {
   title: '',
 };
 
-const messages = createSlice({
+const reducer = createSlice({
   name: 'messages',
   initialState,
   reducers: {
@@ -22,6 +22,6 @@ const messages = createSlice({
   },
 });
 
-export default messages.reducer;
+export default reducer.reducer;
 
-export const { createMessages } = messages.actions;
+export const { createMessages } = reducer.actions;

@@ -6,15 +6,23 @@ import { FC } from 'react';
 import styles from './ChatList.module.css';
 import { getMessages } from '../../api/api';
 import { useQuery } from 'react-query';
-import { createMessages } from '../../store/messages';
+import { createMessages } from '../../store/reducer';
 import { useDispatch } from 'react-redux';
+import classNames from 'classnames';
 
 interface IChatItem {
   chat: IChatData;
+  activeId: string;
+  updateActiveId: (id: string) => void;
 }
 
-export const ChatItem: FC<IChatItem> = ({ chat }) => {
+export const ChatItem: FC<IChatItem> = ({ chat, activeId, updateActiveId }) => {
   const dispatch = useDispatch();
+
+  const chatItemClass = classNames({
+    [styles.chatList]: true,
+    [styles.active]: activeId === chat.id,
+  });
 
   const { refetch } = useQuery({
     queryKey: ['messages', chat.id],
@@ -26,6 +34,7 @@ export const ChatItem: FC<IChatItem> = ({ chat }) => {
   });
 
   const handleClick = async () => {
+    updateActiveId(chat.id);
     await refetch();
   };
 
@@ -34,7 +43,7 @@ export const ChatItem: FC<IChatItem> = ({ chat }) => {
       direction='row'
       spacing={2}
       alignItems='center'
-      className={styles.chatList}
+      className={chatItemClass}
       paddingLeft={2}
       onClick={handleClick}
     >

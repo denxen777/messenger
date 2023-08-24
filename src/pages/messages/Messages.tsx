@@ -1,19 +1,19 @@
 import { Box, Stack } from '@mui/system';
-import { Header } from '../header/Header';
-import { Message } from '../message/Message';
+import { Header } from '../../components/header/Header';
+import { Message } from '../../components/message/Message';
 import { messagesSelector, titleSelector } from '../../store/selectors';
 import { useSelector } from 'react-redux';
-import { Form } from '../form/Form';
+import { Form } from '../../components/form/Form';
 
 export const Messages = () => {
   const messages = useSelector(messagesSelector);
   const title = useSelector(titleSelector);
 
   return (
-    <Stack width='100%' borderLeft={2} borderColor='#d7dbe085'>
+    <Stack width='100%' borderLeft={2} borderColor='#E4E4E4'>
       <Box>
         <Header title={title} />
-        <Box height='70vh' style={{ overflowY: 'auto' }} px={3}>
+        <Box height='70vh' style={{ overflowY: 'auto' }}>
           {messages.map(item => (
             <Message key={item.id} item={item} />
           ))}

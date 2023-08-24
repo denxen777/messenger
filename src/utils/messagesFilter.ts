@@ -1,7 +1,7 @@
 import { IMessageData } from '../api/interfaces';
 import { getDate } from './getDate';
 
-export const dateFilter = (array: IMessageData[]) => {
+export const messagesFilter = (array: IMessageData[]) => {
   const result: IMessageData[] = [];
 
   for (let i = 0; i < array.length; i++) {
