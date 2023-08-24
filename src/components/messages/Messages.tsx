@@ -10,7 +10,7 @@ export const Messages = () => {
   const title = useSelector(titleSelector);
 
   return (
-    <Stack width='100%' borderLeft={2} borderColor='#201F1E04'>
+    <Stack width='100%' borderLeft={2} borderColor='#d7dbe085'>
       <Box>
         <Header title={title} />
         <Box height='70vh' style={{ overflowY: 'auto' }} px={3}>

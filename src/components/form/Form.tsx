@@ -11,7 +11,7 @@ export const Form = () => {
 
   return (
     <Box component='form' py={2} onSubmit={onSubmit}>
-      <textarea className={styles.entryField} placeholder='Type Message' />
+      <textarea className={styles.entryField} placeholder='Введите сообщение' />
       <Stack direction='row' justifyContent='space-between' pt={0.5}>
         <button className={styles.attach}>
           <img src={iconAttach} alt='Attach' />
