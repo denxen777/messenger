@@ -9,10 +9,11 @@ import { getDate } from '../../utils/getDate';
 
 interface IMessage {
   item: IMessageData;
+  newMessageId: undefined | string;
 }
 
-export const Message: FC<IMessage> = ({ item }) => {
-  const { message, is_new, created_at, user } = item;
+export const Message: FC<IMessage> = ({ item, newMessageId }) => {
+  const { message, created_at, user, id } = item;
   const { day = '', month = '', year = '' } = getDate(created_at);
 
   return (
@@ -20,7 +21,7 @@ export const Message: FC<IMessage> = ({ item }) => {
       {item.created_at !== 0 && (
         <SystemMessage day={day} month={month} year={year} />
       )}
-      {is_new && <NewMessage />}
+      {newMessageId === id && <NewMessage />}
       <Stack
         direction='row'
         spacing={1}
