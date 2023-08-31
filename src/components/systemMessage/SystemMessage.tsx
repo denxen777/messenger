@@ -1,6 +1,7 @@
 import { Box } from '@mui/system';
-import styles from './SystemMessage.module.css';
 import { FC } from 'react';
+
+import styles from './SystemMessage.module.css';
 
 interface ISystemMessage {
   day: string;
@@ -18,7 +19,7 @@ export const SystemMessage: FC<ISystemMessage> = ({ day, month, year }) => {
         borderRadius={1}
         width='fit-content'
       >
-        <span className={styles.date}>{day + '.' + month + '.' + year}</span>
+        <span className={styles.date}>{`${day}.${month}.${year}`}</span>
       </Box>
     </Box>
   );

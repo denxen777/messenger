@@ -1,14 +1,15 @@
 import { Stack } from '@mui/system';
+import { FC } from 'react';
+import { useQuery } from 'react-query';
+import { useDispatch } from 'react-redux';
+import classNames from 'classnames';
+
+import styles from './ChatItem.module.css';
 import { Avatar } from '../common/avatar/Avatar';
 import { ChatInfo } from '../chatInfo/ChatInfo';
 import { IChatData } from '../../api/interfaces';
-import { FC } from 'react';
-import styles from './ChatList.module.css';
 import { getMessages } from '../../api/api';
-import { useQuery } from 'react-query';
 import { createMessages } from '../../store/reducer';
-import { useDispatch } from 'react-redux';
-import classNames from 'classnames';
 
 interface IChatItem {
   chat: IChatData;
@@ -20,7 +21,7 @@ export const ChatItem: FC<IChatItem> = ({ chat, activeId, updateActiveId }) => {
   const dispatch = useDispatch();
 
   const chatItemClass = classNames({
-    [styles.chatList]: true,
+    [styles.chatItem]: true,
     [styles.active]: activeId === chat.id,
   });
 

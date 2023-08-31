@@ -1,8 +1,9 @@
 import { Stack } from '@mui/system';
-import { Time } from '../time/Time';
-import styles from './ChatInfo.module.css';
-import { ILastMessage } from '../../api/interfaces';
 import { FC } from 'react';
+
+import styles from './ChatInfo.module.css';
+import { Time } from '../time/Time';
+import { ILastMessage } from '../../api/interfaces';
 
 interface IChatInfo {
   title: string;

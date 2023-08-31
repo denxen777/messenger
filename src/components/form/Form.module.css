@@ -22,3 +22,7 @@
 .attach {
   background-color: #F6F6F6;
 }
+
+.hidden {
+  visibility: hidden;
+}

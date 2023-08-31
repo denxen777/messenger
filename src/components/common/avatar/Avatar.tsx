@@ -1,5 +1,7 @@
 import { Box } from '@mui/system';
 import { FC } from 'react';
+import classNames from 'classnames';
+
 import styles from './Avatar.module.css';
 
 interface IAvatar {
@@ -8,10 +10,14 @@ interface IAvatar {
 }
 
 export const Avatar: FC<IAvatar> = ({ avatar, size = 'large' }) => {
+  const avatarClass = classNames({
+    [styles.hidden]: avatar === '',
+  });
+
   return (
-    <Box className={avatar === '' ? styles.hidden : ''}>
+    <Box className={avatarClass}>
       <img
-        className={styles.avatar + ' ' + styles[size]}
+        className={classNames(styles.avatar, styles[size])}
         src={avatar}
         alt='Аватар'
       />

@@ -1,11 +1,12 @@
 import { Box, Stack } from '@mui/system';
+import { FC } from 'react';
+
 import { Avatar } from '../common/avatar/Avatar';
 import { Time } from '../time/Time';
-import { FC } from 'react';
-import { IMessageData } from '../../api/interfaces';
 import { SystemMessage } from '../systemMessage/SystemMessage';
 import { NewMessage } from '../newMessage/NewMessage';
 import { getDate } from '../../utils/getDate';
+import { IMessageData } from '../../api/interfaces';
 
 interface IMessage {
   item: IMessageData;

@@ -1,9 +1,10 @@
 import { Box } from '@mui/system';
-import { ChatItem } from '../../components/chatItem/ChatItem';
-import styles from './ChatList.module.css';
 import { useQuery } from 'react-query';
-import { getAllChats } from '../../api/api';
 import { useState } from 'react';
+
+import styles from './ChatList.module.css';
+import { ChatItem } from '../../components/chatItem/ChatItem';
+import { getAllChats } from '../../api/api';
 
 export const ChatList = () => {
   const [activeId, setActiveId] = useState('');
@@ -14,9 +15,9 @@ export const ChatList = () => {
   });
 
   return (
-    <Box minWidth={360}>
+    <Box minWidth={370}>
       <h3 className={styles.title}>Все чаты</h3>
-      <Box height='70vh' overflow='hidden' sx={{ overflowY: 'auto' }}>
+      <Box height='70vh' sx={{ overflowY: 'auto' }}>
         {isSuccess &&
           chats.response.map(chat => (
             <ChatItem

@@ -1,6 +1,7 @@
-import { Stack } from '@mui/system';
-import styles from './Time.module.css';
 import { FC } from 'react';
+import { Stack } from '@mui/system';
+
+import styles from './Time.module.css';
 import { getDate } from '../../utils/getDate';
 
 interface ITime {
