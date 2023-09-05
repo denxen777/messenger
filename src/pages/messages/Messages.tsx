@@ -7,6 +7,7 @@ import { Header } from '../../components/header/Header';
 import { Message } from '../../components/message/Message';
 import { Form } from '../../components/form/Form';
 import { messagesSelector, titleSelector } from '../../store/selectors';
+import { Info } from '../../components/info/Info';
 
 export const Messages = () => {
   const messages = useSelector(messagesSelector);
@@ -36,6 +37,7 @@ export const Messages = () => {
               newMessageId={newMessageFound?.id}
             />
           ))}
+          {!messages.length && <Info />}
         </Box>
       </Box>
       <Box px={3}>

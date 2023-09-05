@@ -1,15 +1,22 @@
-import { Container, Stack } from '@mui/system';
+import { Box, Container, Stack } from '@mui/system';
 
 import { ChatList } from './pages/chatList/ChatList';
 import { Messages } from './pages/messages/Messages';
 
 export const App = () => {
+  const containerClass = {
+    boxShadow: '0px 4px 8px 2px rgba(30, 31, 32, 0.21)',
+    borderRadius: 1,
+  };
+
   return (
-    <Container maxWidth='xl'>
-      <Stack direction='row' height='100%'>
-        <ChatList />
-        <Messages />
-      </Stack>
-    </Container>
+    <Box p={2}>
+      <Container maxWidth='xl' sx={containerClass} disableGutters={true}>
+        <Stack direction='row' height='100%'>
+          <ChatList />
+          <Messages />
+        </Stack>
+      </Container>
+    </Box>
   );
 };
