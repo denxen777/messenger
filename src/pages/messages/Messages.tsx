@@ -28,7 +28,7 @@ export const Messages = () => {
     <Stack width='100%' borderLeft={2} borderColor='#E4E4E4'>
       <Box>
         <Header title={title} />
-        <Box id='content' height='70vh' style={{ overflowY: 'auto' }}>
+        <Box id='content' height='77vh' style={{ overflowY: 'auto' }}>
           {messages.map(item => (
             <Message
               key={item.id}

@@ -45,7 +45,9 @@ export const ChatItem: FC<IChatItem> = ({ chat, activeId, updateActiveId }) => {
       spacing={2}
       alignItems='center'
       className={chatItemClass}
-      paddingLeft={2}
+      /*paddingLeft={2}*/
+      px={2}
+      py={1.5}
       onClick={handleClick}
     >
       <Avatar avatar={chat.avatar} size='large' />

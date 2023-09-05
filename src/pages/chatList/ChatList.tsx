@@ -17,7 +17,7 @@ export const ChatList = () => {
   return (
     <Box minWidth={370}>
       <h3 className={styles.title}>Все чаты</h3>
-      <Box height='70vh' sx={{ overflowY: 'auto' }}>
+      <Box height='82vh' sx={{ overflowY: 'auto' }}>
         {isSuccess &&
           chats.response.map(chat => (
             <ChatItem
