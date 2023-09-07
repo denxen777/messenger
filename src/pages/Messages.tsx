@@ -3,11 +3,14 @@ import { useSelector } from 'react-redux';
 import { useEffect, useMemo } from 'react';
 import { animateScroll } from 'react-scroll';
 
-import { Header } from '../../components/header/Header';
-import { Message } from '../../components/message/Message';
-import { Form } from '../../components/form/Form';
-import { messagesSelector, titleSelector } from '../../store/selectors';
-import { Info } from '../../components/info/Info';
+import { Header } from '../components/Header';
+import { Message } from '../components/Message';
+import { Form } from '../components/Form/Form';
+import { messagesSelector, titleSelector } from '../store/selectors';
+import { Info } from '../components/Info';
+import { useQuery } from 'react-query';
+import { getAllChats } from '../api/api';
+import { LoadingError } from '../components/LoadingError';
 
 export const Messages = () => {
   const messages = useSelector(messagesSelector);
@@ -17,6 +20,11 @@ export const Messages = () => {
     () => messages.find(item => item.is_new),
     [messages],
   );
+
+  const { isLoading, isError } = useQuery({
+    queryKey: ['chats'],
+    queryFn: getAllChats,
+  });
 
   useEffect(() => {
     animateScroll.scrollToBottom({
@@ -37,7 +45,8 @@ export const Messages = () => {
               newMessageId={newMessageFound?.id}
             />
           ))}
-          {!messages.length && <Info />}
+          {!isError && !isLoading && !messages.length && <Info />}
+          {isError && <LoadingError />}
         </Box>
       </Box>
       <Box px={3}>

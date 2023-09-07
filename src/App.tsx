@@ -1,7 +1,7 @@
 import { Box, Container, Stack } from '@mui/system';
 
-import { ChatList } from './pages/chatList/ChatList';
-import { Messages } from './pages/messages/Messages';
+import { ChatList } from './pages/ChatList/ChatList';
+import { Messages } from './pages/Messages';
 
 export const App = () => {
   const containerClass = {

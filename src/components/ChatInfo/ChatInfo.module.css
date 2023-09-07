@@ -1,11 +1,8 @@
-.title {
-  max-width: 180px;
-}
-
 .lastMessage,
 .title {
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 190px;
 }
 
 .lastMessage {

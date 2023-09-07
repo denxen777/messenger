@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import styles from './ChatItem.module.css';
 import { Avatar } from '../common/avatar/Avatar';
-import { ChatInfo } from '../chatInfo/ChatInfo';
+import { ChatInfo } from '../ChatInfo/ChatInfo';
 import { IChatData } from '../../api/interfaces';
 import { getMessages } from '../../api/api';
 import { createMessages } from '../../store/reducer';
@@ -50,7 +50,11 @@ export const ChatItem: FC<IChatItem> = ({ chat, activeId, updateActiveId }) => {
       onClick={handleClick}
     >
       <Avatar avatar={chat.avatar} size='large' />
-      <ChatInfo title={chat.title} lastMessage={chat.last_message} />
+      <ChatInfo
+        title={chat.title}
+        lastMessage={chat.last_message}
+        countUnread={chat.count_unread}
+      />
     </Stack>
   );
 };

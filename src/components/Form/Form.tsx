@@ -3,8 +3,8 @@ import { Box, Stack } from '@mui/system';
 import classNames from 'classnames';
 
 import styles from './Form.module.css';
-import iconSend from '../../aseets/img/send.png';
-import iconAttach from '../../aseets/img/attach.png';
+import iconSend from '../../aseets/icons/send.png';
+import iconAttach from '../../aseets/icons/attach.png';
 
 interface IForm {
   hidden: boolean;
