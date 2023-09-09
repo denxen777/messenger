@@ -1,8 +1,6 @@
 import { Box, Stack } from '@mui/system';
 import { FC } from 'react';
 
-import styles from './SystemMessage.module.css';
-
 interface ISystemMessage {
   day: string;
   month: string;

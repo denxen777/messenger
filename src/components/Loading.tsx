@@ -11,7 +11,7 @@ export const Loading = () => {
       alignItems='center'
       justifyContent='center'
     >
-      <img src={preloader} alt='preloader' />
+      <img src={preloader} alt='Loading' />
     </Box>
   );
 };

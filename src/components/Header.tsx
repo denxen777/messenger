@@ -1,11 +1,11 @@
 import { Box, Stack } from '@mui/system';
-import { FC } from 'react';
+import { useSelector } from 'react-redux';
 
-interface IHeader {
-  title: string;
-}
+import { titleSelector } from '../store/selectors';
 
-export const Header: FC<IHeader> = ({ title }) => {
+export const Header = () => {
+  const title = useSelector(titleSelector);
+
   return (
     <Stack
       direction='row'

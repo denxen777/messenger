@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import styles from './Sticker.module.css';
 
 interface ISticker {

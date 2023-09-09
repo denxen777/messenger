@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 import styles from './ChatItem.module.css';
-import { Avatar } from '../common/avatar/Avatar';
+import { Avatar } from '../_common/avatar/Avatar';
 import { ChatInfo } from '../ChatInfo/ChatInfo';
 import { IChatData } from '../../api/interfaces';
 import { getMessages } from '../../api/api';
@@ -18,24 +18,26 @@ interface IChatItem {
 }
 
 export const ChatItem: FC<IChatItem> = ({ chat, activeId, updateActiveId }) => {
+  const { id, title, avatar, last_message, count_unread } = chat;
+
   const dispatch = useDispatch();
 
   const chatItemClass = classNames({
     [styles.chatItem]: true,
-    [styles.active]: activeId === chat.id,
+    [styles.active]: activeId === id,
   });
 
   const { refetch } = useQuery({
-    queryKey: ['messages', chat.id],
-    queryFn: () => getMessages(chat.id),
+    queryKey: ['messages', id],
+    queryFn: () => getMessages(id),
     enabled: false,
-    onSuccess: data => {
-      dispatch(createMessages({ title: chat.title, messages: data.response }));
+    onSuccess: ({ response: messages }) => {
+      dispatch(createMessages({ title, messages }));
     },
   });
 
   const handleClick = async () => {
-    updateActiveId(chat.id);
+    updateActiveId(id);
     await refetch();
   };
 
@@ -49,11 +51,11 @@ export const ChatItem: FC<IChatItem> = ({ chat, activeId, updateActiveId }) => {
       py={1.5}
       onClick={handleClick}
     >
-      <Avatar avatar={chat.avatar} size='large' />
+      <Avatar avatar={avatar} size='large' />
       <ChatInfo
-        title={chat.title}
-        lastMessage={chat.last_message}
-        countUnread={chat.count_unread}
+        title={title}
+        lastMessage={last_message}
+        countUnread={count_unread}
       />
     </Stack>
   );

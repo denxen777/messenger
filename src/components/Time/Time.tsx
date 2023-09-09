@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Stack } from '@mui/system';
+import { Box, Stack } from '@mui/system';
 
 import styles from './Time.module.css';
 import { getDate } from '../../utils/getDate';
@@ -17,7 +17,7 @@ export const Time: FC<ITime> = ({ time, incoming }) => {
       <p className={styles.time}>
         {hours}:{min}
       </p>
-      <p>
+      <Box>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='16'
@@ -32,7 +32,7 @@ export const Time: FC<ITime> = ({ time, incoming }) => {
             fill={!incoming ? 'none' : '#407EC9'}
           />
         </svg>
-      </p>
+      </Box>
     </Stack>
   );
 };
