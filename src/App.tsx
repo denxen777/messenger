@@ -12,7 +12,7 @@ export const App = () => {
   return (
     <Box p={2}>
       <Container maxWidth='xl' sx={containerClass} disableGutters={true}>
-        <Stack direction='row' height='100%'>
+        <Stack direction='row' height='95vh'>
           <ChatList />
           <Messages />
         </Stack>

@@ -22,7 +22,7 @@ export const ChatList = () => {
   return (
     <Box minWidth={370}>
       <h3 className={styles.title}>Все чаты</h3>
-      <Box height='82vh' sx={{ overflowY: 'auto' }}>
+      <Box height='75vh' sx={{ overflowY: 'auto' }}>
         {isLoading && <Loading />}
         {isSuccess &&
           chats.response.map(chat => (
