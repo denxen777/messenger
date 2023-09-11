@@ -20,7 +20,7 @@ export const ChatList = () => {
   });
 
   return (
-    <Box minWidth={370}>
+    <Box minWidth={370} className={styles.chatList}>
       <h3 className={styles.title}>Все чаты</h3>
       <Box height='75vh' sx={{ overflowY: 'auto' }}>
         {isLoading && <Loading />}

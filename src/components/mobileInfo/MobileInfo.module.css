@@ -1,0 +1,15 @@
+.mobileInfo {
+  height: 100%;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .mobileInfo {
+    display: flex;
+  }
+}

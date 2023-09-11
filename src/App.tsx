@@ -1,7 +1,8 @@
 import { Box, Container, Stack } from '@mui/system';
 
-import { Messages } from './pages/Messages';
+import { Messages } from './pages/messages/Messages';
 import { ChatList } from './pages/ChatList/ChatList';
+import { MobileInfo } from './components/mobileInfo/MobileInfo';
 
 export const App = () => {
   const containerClass = {
@@ -15,6 +16,7 @@ export const App = () => {
         <Stack direction='row' height='95vh'>
           <ChatList />
           <Messages />
+          <MobileInfo />
         </Stack>
       </Container>
     </Box>
