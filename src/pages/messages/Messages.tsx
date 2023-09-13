@@ -2,15 +2,14 @@ import { Box, Stack } from '@mui/system';
 import { useSelector } from 'react-redux';
 import { useEffect, useMemo } from 'react';
 import { animateScroll } from 'react-scroll';
-import { useQuery } from 'react-query';
 
 import { Header } from '../../components/Header';
 import { Message } from '../../components/Message';
 import { Form } from '../../components/Form/Form';
 import { messagesSelector } from '../../store/selectors';
 import { Info } from '../../components/Info';
-import { getAllChats } from '../../api/api';
 import { LoadingError } from '../../components/LoadingError';
+import { useChats } from '../../hooks/useChats';
 import styles from './Messages.module.css';
 
 export const Messages = () => {
@@ -21,10 +20,7 @@ export const Messages = () => {
     [messages],
   );
 
-  const { isLoading, isError } = useQuery({
-    queryKey: ['chats'],
-    queryFn: getAllChats,
-  });
+  const { isLoading, isError } = useChats();
 
   useEffect(() => {
     animateScroll.scrollToBottom({

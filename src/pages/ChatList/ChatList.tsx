@@ -1,23 +1,15 @@
 import { Box } from '@mui/system';
-import { useQuery } from 'react-query';
 import { useState } from 'react';
 
 import styles from './ChatList.module.css';
 import { ChatItem } from '../../components/ChatItem/ChatItem';
 import { Loading } from '../../components/Loading';
-import { getAllChats } from '../../api/api';
+import { useChats } from '../../hooks/useChats';
 
 export const ChatList = () => {
   const [activeId, setActiveId] = useState('');
 
-  const {
-    data: chats,
-    isSuccess,
-    isLoading,
-  } = useQuery({
-    queryKey: ['chats'],
-    queryFn: getAllChats,
-  });
+  const { data: chats, isSuccess, isLoading } = useChats();
 
   return (
     <Box minWidth={370} className={styles.chatList}>
