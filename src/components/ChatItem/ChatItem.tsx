@@ -9,7 +9,7 @@ import { Avatar } from '../_common/avatar/Avatar';
 import { ChatInfo } from '../ChatInfo/ChatInfo';
 import { IChatData } from '../../api/interfaces';
 import { getMessages } from '../../api/api';
-import { createMessages } from '../../store/reducer';
+import { addMessages } from '../../store/reducer';
 
 interface IChatItem {
   chat: IChatData;
@@ -20,19 +20,22 @@ interface IChatItem {
 export const ChatItem: FC<IChatItem> = ({ chat, activeId, updateActiveId }) => {
   const { id, title, avatar, last_message, count_unread } = chat;
 
-  const dispatch = useDispatch();
-
   const chatItemClass = classNames({
     [styles.chatItem]: true,
     [styles.active]: activeId === id,
   });
+
+  const dispatch = useDispatch();
 
   const { refetch } = useQuery({
     queryKey: ['messages', id],
     queryFn: () => getMessages(id),
     enabled: false,
     onSuccess: ({ response: messages }) => {
-      dispatch(createMessages({ title, messages }));
+      dispatch(addMessages({ title, messages }));
+    },
+    onError: () => {
+      alert('Что-то пошло не так...');
     },
   });
 

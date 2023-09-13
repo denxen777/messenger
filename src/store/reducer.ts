@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { IMessagesState } from './interfaces';
 import { IMessageData } from '../api/interfaces';
 
@@ -11,7 +12,7 @@ const reducer = createSlice({
   name: 'messages',
   initialState,
   reducers: {
-    createMessages: (
+    addMessages: (
       state,
       action: PayloadAction<{ title: string; messages: IMessageData[] }>,
     ) => {
@@ -24,4 +25,4 @@ const reducer = createSlice({
 
 export default reducer.reducer;
 
-export const { createMessages } = reducer.actions;
+export const { addMessages } = reducer.actions;

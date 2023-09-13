@@ -1,8 +1,5 @@
-.chatItem {
-  cursor: pointer;
-}
-
 .chatItem:hover {
+  cursor: pointer;
   background-color: #F6F6F6;
 }
 

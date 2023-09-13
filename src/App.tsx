@@ -1,6 +1,6 @@
 import { Box, Container, Stack } from '@mui/system';
 
-import { Messages } from './pages/messages/Messages';
+import { Messages } from './pages/Messages/Messages';
 import { ChatList } from './pages/ChatList/ChatList';
 import { MobileInfo } from './components/mobileInfo/MobileInfo';
 
